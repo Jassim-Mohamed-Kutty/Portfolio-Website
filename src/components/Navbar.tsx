@@ -40,7 +40,7 @@ export function Navbar() {
             <div className="h-8 w-8 rounded-lg gradient-primary grid place-items-center font-bold text-background">
               J
             </div>
-            <span className="font-display font-semibold text-foreground">Jassim<span className="text-primary">.</span></span>
+            <span className="font-display font-semibold text-foreground">Jassim Mohamed Kutty<span className="text-primary">.</span></span>
           </a>
 
           <ul className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
