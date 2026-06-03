@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -19,9 +19,15 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-foreground mb-3">Navigate</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              {["About", "Experience", "Skills", "Projects", "Contact"].map((l) => (
-                <li key={l}>
-                  <a href={`#${l.toLowerCase()}`} className="hover:text-primary transition-colors">{l}</a>
+              {[
+                { label: "About", href: "#about" },
+                { label: "Experience", href: "#experience" },
+                { label: "Skills", href: "#skills" },
+                { label: "Work", href: "#projects" },
+                { label: "Contact", href: "#contact" },
+              ].map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="hover:text-primary transition-colors">{l.label}</a>
                 </li>
               ))}
             </ul>
@@ -33,7 +39,6 @@ export function Footer() {
               {[
                 { icon: Mail, href: "mailto:jassimkutty19@gmail.com", label: "Email" },
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Github, href: "#", label: "GitHub" },
               ].map((s) => (
                 <a
                   key={s.label}

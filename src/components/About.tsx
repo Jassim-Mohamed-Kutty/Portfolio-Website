@@ -21,7 +21,7 @@ export function About() {
     <Section
       id="about"
       eyebrow="About Me"
-      title={<>Bridging <span className="gradient-text">business</span> & <span className="gradient-text">data engineering</span></>}
+      title={<>Bridging <span className="gradient-text">business</span> & <span className="gradient-text">data analytics</span></>}
       subtitle="Four years turning raw data into decisions — and now leveling up toward modern analytics engineering."
     >
       <div className="grid lg:grid-cols-2 gap-10">
@@ -39,7 +39,7 @@ export function About() {
             I specialize in transforming raw data into decision-grade insights using <span className="text-primary">Power BI, SQL, Databricks, and Azure</span>, with deep familiarity in enterprise platforms like SAP, Salesforce, and ServiceMax.
           </p>
           <p>
-            My journey is evolving from Business Intelligence into <span className="text-secondary">Data Engineering & Analytics Engineering</span> — building semantic layers, curated data products, and reliable pipelines that power the next generation of reporting.
+            My journey is evolving from Business Intelligence into <span className="text-secondary">Analytics Engineering</span>.
           </p>
 
           <div className="grid grid-cols-2 gap-3 pt-4">
