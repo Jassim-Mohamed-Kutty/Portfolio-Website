@@ -22,7 +22,7 @@ export function Education() {
           </div>
           <div className="flex-1">
             <div className="text-xs font-mono text-primary mb-1">2019 — 2022</div>
-            <h3 className="text-xl font-semibold text-foreground mb-1">Bachelor of Science (Triple Major)</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-1">Bachelor of Science in Mathematics, Statistics & Economics</h3>
             <p className="text-muted-foreground mb-4">St. Joseph's College, Bengaluru</p>
             <div className="flex flex-wrap gap-2">
               {["Mathematics", "Economics", "Statistics"].map((m) => (
