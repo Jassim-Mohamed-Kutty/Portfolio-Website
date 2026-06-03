@@ -38,9 +38,9 @@ export function Projects() {
   return (
     <Section
       id="projects"
-      eyebrow="Featured Projects"
-      title={<>Selected <span className="gradient-text">work</span></>}
-      subtitle="A snapshot of analytics solutions delivered across global enterprise environments."
+      eyebrow="Work Highlights"
+      title={<>Analytics solutions I've <span className="gradient-text">delivered</span></>}
+      subtitle="A glimpse into the kinds of analytics and reporting initiatives I've built and contributed to in my current role."
     >
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((p, i) => (
@@ -50,13 +50,12 @@ export function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: i * 0.06 }}
-            className="glass glass-hover rounded-2xl p-6 flex flex-col group cursor-pointer"
+            className="glass glass-hover rounded-2xl p-6 flex flex-col group"
           >
             <div className="flex items-start justify-between mb-4">
               <span className="text-[10px] font-mono uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-md">
                 {p.tag}
               </span>
-              <ArrowUpRight size={18} className="text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" />
             </div>
             <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
               {p.title}
