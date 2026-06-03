@@ -4,7 +4,7 @@ import profile from "@/assets/profile.png.asset.json";
 
 const stats = [
   { value: "4+", label: "Years Experience" },
-  { value: "30+", label: "Analytics Solutions" },
+  { value: "50+", label: "Analytics Solutions" },
   { value: "Global", label: "Stakeholder Reach" },
   { value: "Multi", label: "Industry Expertise" },
 ];
@@ -38,10 +38,7 @@ export function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-3 mb-10">
-              <a href="#projects" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium gradient-primary text-background hover:opacity-90 transition glow">
-                View Projects <ArrowRight size={16} />
-              </a>
-              <a href="/resume.pdf" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium glass glass-hover text-foreground">
+              <a href="/resume.pdf" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium gradient-primary text-background hover:opacity-90 transition glow">
                 <Download size={16} /> Download Resume
               </a>
               <a href="#contact" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium glass glass-hover text-foreground">
@@ -94,7 +91,7 @@ export function Hero() {
                 transition={{ duration: 6, repeat: Infinity }}
                 className="absolute top-1/2 -right-8 glass rounded-xl px-3 py-2 text-xs"
               >
-                <div className="text-primary font-mono">Azure</div>
+                <div className="text-primary font-mono">Databricks</div>
               </motion.div>
             </div>
           </motion.div>
