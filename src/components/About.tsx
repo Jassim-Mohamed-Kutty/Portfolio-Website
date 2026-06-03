@@ -21,7 +21,7 @@ export function About() {
     <Section
       id="about"
       eyebrow="About Me"
-      title={<>Bridging <span className="gradient-text">business</span> & <span className="gradient-text">data engineering</span></>}
+      title={<>Bridging <span className="gradient-text">business</span> & <span className="gradient-text">data analytics</span></>}
       subtitle="Four years turning raw data into decisions — and now leveling up toward modern analytics engineering."
     >
       <div className="grid lg:grid-cols-2 gap-10">
