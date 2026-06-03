@@ -21,10 +21,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs text-muted-foreground mb-6">
-              <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              Available for new opportunities
-            </div>
+
+
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6">
               Transforming <span className="gradient-text">Data</span> into<br />
