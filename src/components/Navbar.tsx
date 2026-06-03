@@ -58,7 +58,7 @@ export function Navbar() {
             href="#contact"
             className="hidden md:inline-flex items-center rounded-lg px-4 py-2 text-sm font-medium gradient-primary text-background hover:opacity-90 transition"
           >
-            Let's Talk
+            Let's Connect
           </a>
 
           <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
