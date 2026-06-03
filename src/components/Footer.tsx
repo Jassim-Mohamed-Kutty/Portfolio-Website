@@ -33,7 +33,6 @@ export function Footer() {
               {[
                 { icon: Mail, href: "mailto:jassimkutty19@gmail.com", label: "Email" },
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
-                { icon: Github, href: "#", label: "GitHub" },
               ].map((s) => (
                 <a
                   key={s.label}
