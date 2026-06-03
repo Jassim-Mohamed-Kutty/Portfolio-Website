@@ -4,6 +4,11 @@ import { BarChart3, Database, Cloud, Cpu, Users } from "lucide-react";
 
 const groups = [
   {
+    icon: Users,
+    title: "Professional Skills",
+    items: ["Stakeholder Management", "Problem Solving", "Communication", "Project Delivery", "Cross-functional Collaboration"],
+  },
+  {
     icon: BarChart3,
     title: "Business Intelligence",
     items: ["Power BI", "DAX", "Power Query", "Dashboard Development", "KPI Design", "Executive Reporting"],
@@ -22,11 +27,6 @@ const groups = [
     icon: Cloud,
     title: "Cloud & Enterprise",
     items: ["Azure Data Factory", "Azure Data Lake", "SAP", "Salesforce", "ServiceMax"],
-  },
-  {
-    icon: Users,
-    title: "Professional Skills",
-    items: ["Stakeholder Management", "Problem Solving", "Communication", "Project Delivery", "Cross-functional Collaboration"],
   },
 ];
 
