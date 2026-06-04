@@ -6,6 +6,7 @@ import { Experience } from "@/components/Experience";
 import { Skills } from "@/components/Skills";
 import { Services } from "@/components/Services";
 import { Projects } from "@/components/Projects";
+import { Certifications } from "@/components/Certifications";
 import { Education } from "@/components/Education";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -36,6 +37,7 @@ function Home() {
       <Skills />
       <Services />
       <Projects />
+      <Certifications />
       <Education />
       <Contact />
       <Footer />
