@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { ShieldCheck, ExternalLink, Award } from "lucide-react";
+import databricksBadge from "@/assets/databricks-data-analyst-associate.png.asset.json";
 
 const certs = [
   {
@@ -13,15 +14,17 @@ const certs = [
     badgeUrl: "https://learn.microsoft.com/media/learn/certification/badges/power-bi-data-analyst-associate.svg",
     logo: "M",
     logoGradient: "from-[#F25022] via-[#7FBA00] to-[#00A4EF]",
+    image: "",
   },
   {
     title: "Databricks Certified Data Analyst Associate",
     issuer: "Databricks",
     desc: "Validates proficiency in Databricks SQL, data exploration, dashboard creation, visualization, and analytics workflows within the Databricks Lakehouse Platform.",
     url: "https://credentials.databricks.com/49daa044-ab9a-40dd-a8b2-88a302e56ab3#acc.wAb0qYTK",
-    badge: "https://images.credly.com/size/340x340/images/4a4d4b89-d181-4d2e-9c8e-3a3a3a3a3a3a/databricks-data-analyst-associate.png",
+    badge: databricksBadge.url,
     badgeAlt: "Databricks Certified Data Analyst Associate badge",
-    badgeUrl: "https://images.credly.com/size/340x340/images/3b3b6c4f-7b7e-4e6b-9c1a-7d3b3b3b3b3b/databricks-certified-data-analyst-associate.png",
+    badgeUrl: databricksBadge.url,
+    image: databricksBadge.url,
     logo: "D",
     logoGradient: "from-[#FF3621] to-[#FF8C42]",
   },
@@ -94,9 +97,13 @@ export function Certifications() {
               <motion.div
                 whileHover={{ scale: 1.06, rotate: -2 }}
                 transition={{ type: "spring", stiffness: 220, damping: 14 }}
-                className="h-28 w-28 rounded-2xl gradient-primary grid place-items-center text-background shadow-xl ring-1 ring-glass-border"
+                className={`h-28 w-28 rounded-2xl grid place-items-center shadow-xl ring-1 ring-glass-border overflow-hidden ${c.image ? "bg-background/40" : "gradient-primary text-background"}`}
               >
-                <Award size={48} strokeWidth={1.5} />
+                {c.image ? (
+                  <img src={c.image} alt={c.badgeAlt} className="h-full w-full object-contain p-1" />
+                ) : (
+                  <Award size={48} strokeWidth={1.5} />
+                )}
               </motion.div>
             </div>
 
