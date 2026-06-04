@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { ShieldCheck, ExternalLink, Award } from "lucide-react";
+import databricksBadge from "@/assets/databricks-data-analyst-associate.png.asset.json";
 
 const certs = [
   {
