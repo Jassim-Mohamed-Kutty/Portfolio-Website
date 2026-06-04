@@ -55,7 +55,7 @@ export function Footer() {
 
         <div className="border-t border-glass-border pt-6 flex flex-col md:flex-row justify-between gap-3 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Jassim Mohamed Kutty. All rights reserved.</p>
-          <p>Built with React, TanStack Start, Tailwind & Framer Motion.</p>
+          <p>{"\n"}</p>
         </div>
       </div>
     </footer>
