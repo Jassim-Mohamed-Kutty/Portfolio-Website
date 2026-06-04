@@ -33,11 +33,11 @@ function Home() {
       <Navbar />
       <Hero />
       <About />
-      <Experience />
+      <Certifications />
       <Skills />
       <Services />
+      <Experience />
       <Projects />
-      <Certifications />
       <Education />
       <Contact />
       <Footer />
