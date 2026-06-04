@@ -14,6 +14,7 @@ const certs = [
     badgeUrl: "https://learn.microsoft.com/media/learn/certification/badges/power-bi-data-analyst-associate.svg",
     logo: "M",
     logoGradient: "from-[#F25022] via-[#7FBA00] to-[#00A4EF]",
+    image: "",
   },
   {
     title: "Databricks Certified Data Analyst Associate",
