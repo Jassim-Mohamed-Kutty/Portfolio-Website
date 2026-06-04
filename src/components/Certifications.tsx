@@ -95,9 +95,13 @@ export function Certifications() {
               <motion.div
                 whileHover={{ scale: 1.06, rotate: -2 }}
                 transition={{ type: "spring", stiffness: 220, damping: 14 }}
-                className="h-28 w-28 rounded-2xl gradient-primary grid place-items-center text-background shadow-xl ring-1 ring-glass-border"
+                className={`h-28 w-28 rounded-2xl grid place-items-center shadow-xl ring-1 ring-glass-border overflow-hidden ${c.image ? "bg-background/40" : "gradient-primary text-background"}`}
               >
-                <Award size={48} strokeWidth={1.5} />
+                {c.image ? (
+                  <img src={c.image} alt={c.badgeAlt} className="h-full w-full object-contain p-1" />
+                ) : (
+                  <Award size={48} strokeWidth={1.5} />
+                )}
               </motion.div>
             </div>
 
