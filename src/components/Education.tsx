@@ -39,7 +39,7 @@ export function Education() {
               alt="Graduation cap on stack of books with diploma"
               whileHover={{ scale: 1.03, y: -4 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="relative w-full h-full object-contain rounded-3xl brightness-[0.3] opacity-50 saturate-[0.4]"
+              className="relative w-full h-full object-contain rounded-3xl brightness-[0.45] opacity-60 saturate-[0.5]"
             />
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background/80 via-surface/30 to-background/60 pointer-events-none" />
           </motion.div>
