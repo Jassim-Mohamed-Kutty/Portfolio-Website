@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
-import { GraduationCap, MapPin, Calendar, Quote, BookOpen, Sparkles } from "lucide-react";
+import { GraduationCap, MapPin, Calendar, Quote } from "lucide-react";
+import educationHero from "@/assets/education-hero.png.asset.json";
+
 
 export function Education() {
   const subjects = ["Mathematics", "Statistics", "Economics"];
@@ -29,41 +31,18 @@ export function Education() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative aspect-square max-w-sm mx-auto w-full"
+            className="relative aspect-square max-w-md mx-auto w-full"
           >
-            {/* Glowing rings */}
-            <div className="absolute inset-0 rounded-full border border-primary/30" />
-            <div className="absolute inset-6 rounded-full border border-primary/20" />
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-              className="absolute inset-0 rounded-full border-2 border-dashed border-primary/30"
+            <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-3xl" />
+            <motion.img
+              src={educationHero.url}
+              alt="Graduation cap on stack of books with diploma"
+              whileHover={{ scale: 1.03, y: -4 }}
+              transition={{ type: "spring", stiffness: 200, damping: 18 }}
+              className="relative w-full h-full object-contain rounded-3xl"
             />
-            {/* Sparkles */}
-            <Sparkles className="absolute top-6 right-10 text-primary/70" size={18} />
-            <Sparkles className="absolute bottom-12 left-6 text-primary/50" size={14} />
-            <Sparkles className="absolute top-1/2 left-2 text-primary/40" size={12} />
-
-            {/* Center podium */}
-            <div className="absolute inset-0 grid place-items-center">
-              <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ type: "spring", stiffness: 200 }}
-                className="relative"
-              >
-                <div className="absolute -inset-8 rounded-full bg-primary/30 blur-3xl" />
-                <div className="relative h-40 w-40 rounded-3xl gradient-primary grid place-items-center shadow-2xl">
-                  <GraduationCap className="text-background" size={72} strokeWidth={1.5} />
-                </div>
-                {/* Books */}
-                <div className="relative mt-3 flex flex-col items-center gap-1.5">
-                  <div className="h-2.5 w-44 rounded-sm bg-gradient-to-r from-primary/60 to-primary/40 border border-primary/50" />
-                  <div className="h-2.5 w-40 rounded-sm bg-gradient-to-r from-primary/40 to-primary/60 border border-primary/40" />
-                </div>
-                <div className="mt-2 mx-auto h-1.5 w-48 rounded-full bg-primary/40 blur-sm" />
-              </motion.div>
-            </div>
           </motion.div>
+
 
           {/* Right: details */}
           <div className="relative">
