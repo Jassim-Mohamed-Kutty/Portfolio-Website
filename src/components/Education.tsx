@@ -33,15 +33,15 @@ export function Education() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="relative aspect-square max-w-md mx-auto w-full"
           >
-            <div className="absolute inset-0 rounded-3xl bg-surface" />
+            <div className="absolute inset-0 rounded-3xl bg-primary/10 blur-3xl" />
             <motion.img
               src={educationHero.url}
               alt="Graduation cap on stack of books with diploma"
               whileHover={{ scale: 1.03, y: -4 }}
               transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="relative w-full h-full object-contain rounded-3xl mix-blend-multiply opacity-85"
+              className="relative w-full h-full object-contain rounded-3xl brightness-[0.3] opacity-50 saturate-[0.4]"
             />
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background/60 via-transparent to-background/40 pointer-events-none" />
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background/80 via-surface/30 to-background/60 pointer-events-none" />
           </motion.div>
 
 
