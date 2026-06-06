@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Section } from "./Section";
 import { Mail, MapPin, Linkedin, Phone, Download, Send } from "lucide-react";
+import { toast } from "sonner";
 
 const items = [
   { icon: MapPin, label: "Location", value: "Bengaluru, India", href: null },
@@ -11,18 +12,36 @@ const items = [
 ];
 
 export function Contact() {
-  const [sent, setSent] = useState(false);
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = data.get("name");
-    const email = data.get("email");
-    const subject = data.get("subject") || "Portfolio inquiry";
-    const msg = data.get("message");
-    window.location.href = `mailto:jassimkutty19@gmail.com?subject=${encodeURIComponent(`${subject} — from ${name}`)}&body=${encodeURIComponent(`${msg}\n\nFrom: ${name} <${email}>`)}`;
-    setSent(true);
+    const payload = {
+      name: String(data.get("name") || "").trim(),
+      email: String(data.get("email") || "").trim(),
+      subject: String(data.get("subject") || "").trim(),
+      message: String(data.get("message") || "").trim(),
+    };
+
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      setStatus("sent");
+      toast.success("Message sent! I'll get back to you soon.");
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      setStatus("idle");
+      toast.error("Couldn't send. Please try again or email me directly.");
+    }
   };
+
 
   return (
     <Section
