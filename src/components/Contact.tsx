@@ -139,9 +139,10 @@ export function Contact() {
           </div>
           <button
             type="submit"
-            className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium gradient-primary text-background hover:opacity-90 transition"
+            disabled={status === "sending"}
+            className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium gradient-primary text-background hover:opacity-90 transition disabled:opacity-60"
           >
-            {sent ? "Opening your email…" : <>Send Message <Send size={14} /></>}
+            {status === "sending" ? "Sending…" : status === "sent" ? "Sent ✓" : <>Send Message <Send size={14} /></>}
           </button>
         </motion.form>
       </div>
