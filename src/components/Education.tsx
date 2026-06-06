@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { GraduationCap, MapPin, Calendar, Quote } from "lucide-react";
-import educationHero from "@/assets/education-hero.png.asset.json";
+
 
 
 export function Education() {
