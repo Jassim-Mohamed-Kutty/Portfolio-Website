@@ -18,8 +18,9 @@ export function Contact() {
     const data = new FormData(form);
     const name = data.get("name");
     const email = data.get("email");
+    const subject = data.get("subject") || "Portfolio inquiry";
     const msg = data.get("message");
-    window.location.href = `mailto:jassimkutty19@gmail.com?subject=Portfolio inquiry from ${name}&body=${encodeURIComponent(`${msg}\n\nFrom: ${name} <${email}>`)}`;
+    window.location.href = `mailto:jassimkutty19@gmail.com?subject=${encodeURIComponent(`${subject} — from ${name}`)}&body=${encodeURIComponent(`${msg}\n\nFrom: ${name} <${email}>`)}`;
     setSent(true);
   };
 
@@ -97,6 +98,15 @@ export function Contact() {
                 placeholder="you@company.com"
               />
             </div>
+          </div>
+          <div>
+            <label className="text-xs text-muted-foreground mb-1.5 block">Subject</label>
+            <input
+              name="subject"
+              required
+              className="w-full rounded-xl bg-surface/60 border border-glass-border px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/60 transition"
+              placeholder="What's this about?"
+            />
           </div>
           <div>
             <label className="text-xs text-muted-foreground mb-1.5 block">Message</label>
