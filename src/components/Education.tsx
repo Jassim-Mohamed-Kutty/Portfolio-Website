@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { GraduationCap, MapPin, Calendar, Quote } from "lucide-react";
-import educationHero from "@/assets/education-hero.png.asset.json";
+
 
 
 export function Education() {
@@ -24,28 +24,9 @@ export function Education() {
         <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-primary/20 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
 
-        <div className="relative grid md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] gap-10 md:gap-14 items-center">
-          {/* Left: visual */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="relative aspect-square max-w-md mx-auto w-full"
-          >
-            <div className="absolute inset-0 rounded-3xl bg-primary/10 blur-3xl" />
-            <motion.img
-              src={educationHero.url}
-              alt="Graduation cap on stack of books with diploma"
-              whileHover={{ scale: 1.03, y: -4 }}
-              transition={{ type: "spring", stiffness: 200, damping: 18 }}
-              className="relative w-full h-full object-contain rounded-3xl brightness-[0.45] opacity-60 saturate-[0.5]"
-            />
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-background/80 via-surface/30 to-background/60 pointer-events-none" />
-          </motion.div>
+        <div className="relative max-w-3xl mx-auto">
+          {/* Left: visual removed */}
 
-
-          {/* Right: details */}
           <div className="relative">
             {/* Vertical accent line */}
             <div className="hidden md:block absolute -left-7 top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
