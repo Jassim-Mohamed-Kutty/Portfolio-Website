@@ -7,7 +7,7 @@ import { toast } from "sonner";
 const items = [
   { icon: MapPin, label: "Location", value: "Bengaluru, India", href: null },
   { icon: Mail, label: "Email", value: "jassimkutty19@gmail.com", href: "mailto:jassimkutty19@gmail.com" },
-  { icon: Linkedin, label: "LinkedIn", value: "Connect with me", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", value: "Connect with me", href: "https://www.linkedin.com/in/jassim-mohamed-kutty/" },
   { icon: Phone, label: "Phone", value: "Available on request", href: null },
 ];
 
