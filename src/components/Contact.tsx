@@ -7,7 +7,7 @@ import { toast } from "sonner";
 const items = [
   { icon: MapPin, label: "Location", value: "Bengaluru, India", href: null },
   { icon: Mail, label: "Email", value: "jassimkutty19@gmail.com", href: "mailto:jassimkutty19@gmail.com" },
-  { icon: Linkedin, label: "LinkedIn", value: "Connect with me", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", value: "Connect with me", href: "https://www.linkedin.com/in/jassim-mohamed-kutty/" },
   { icon: Phone, label: "Phone", value: "Available on request", href: null },
 ];
 
@@ -71,7 +71,7 @@ export function Contact() {
               </>
             );
             return it.href ? (
-              <a key={it.label} href={it.href} className="glass glass-hover rounded-2xl p-4 flex items-center gap-4">
+              <a key={it.label} href={it.href} target={it.href.startsWith("http") ? "_blank" : undefined} rel={it.href.startsWith("http") ? "noopener noreferrer" : undefined} className="glass glass-hover rounded-2xl p-4 flex items-center gap-4">
                 {inner}
               </a>
             ) : (
