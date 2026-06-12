@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { ShieldCheck, ExternalLink } from "lucide-react";
-import databricksBadge from "@/assets/databricks-data-analyst-associate.png.asset.json";
-import microsoftBadge from "@/assets/microsoft-pl300.png.asset.json";
+import databricksBadge from "@/assets/images/databricks-data-analyst-associate.png";
+import microsoftBadge from "@/assets/images/microsoft-pl300.png";
 
 const certs = [
   {
     title: "Microsoft Certified: Power BI Data Analyst Associate (PL-300)",
     desc: "Validates expertise in data preparation, modeling, visualization, and business analytics using Power BI. Demonstrates the ability to transform data into actionable business insights and enable self-service analytics. The certification focuses on Power Query, DAX, data modeling, reporting, and dashboard development.",
     url: "https://learn.microsoft.com/api/credentials/share/en-us/Jassim-Mohamed-Kutty/662AFEF692F3C686?sharingId=8BF7755085BB9E26",
-    image: microsoftBadge.url,
+    image: microsoftBadge,
     alt: "Microsoft Certified: Power BI Data Analyst Associate (PL-300)",
   },
   {
     title: "Databricks Certified Data Analyst Associate",
     desc: "Validates proficiency in Databricks SQL, data exploration, dashboard creation, visualization, and analytics workflows within the Databricks Lakehouse Platform.",
     url: "https://credentials.databricks.com/49daa044-ab9a-40dd-a8b2-88a302e56ab3#acc.wAb0qYTK",
-    image: databricksBadge.url,
+    image: databricksBadge,
     alt: "Databricks Certified Data Analyst Associate",
   },
 ];
