@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+# Nitro auto-detects Netlify from the NETLIFY env var and emits a
+# Netlify Functions/Edge bundle. No further config is required —
+# this file mainly anchors the build command and publish dir.
