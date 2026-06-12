@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Nitro auto-detects Netlify from the NETLIFY env var (set by Netlify CI)
+# and emits static assets + _redirects in `dist/` plus the SSR handler in
+# `.netlify/functions-internal/`. No further config is required here.
