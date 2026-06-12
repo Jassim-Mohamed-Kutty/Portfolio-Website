@@ -12,4 +12,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Force-enable the Nitro deploy plugin outside the Lovable sandbox so
+  // Vercel/Netlify builds produce a real server bundle. Nitro auto-detects
+  // the correct preset from CI env vars (VERCEL / NETLIFY); locally it falls
+  // back to the node-server preset. Override with NITRO_PRESET if needed.
+  nitro: true,
 });
