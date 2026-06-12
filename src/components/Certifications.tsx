@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Section } from "./Section";
 import { ShieldCheck, ExternalLink } from "lucide-react";
-import databricksBadge from "@/assets/databricks-data-analyst-associate.png.asset.json";
-import microsoftBadge from "@/assets/microsoft-pl300.png.asset.json";
+import databricksBadge from "@/assets/images/databricks-data-analyst-associate.png";
+import microsoftBadge from "@/assets/images/microsoft-pl300.png";
 
 const certs = [
   {
