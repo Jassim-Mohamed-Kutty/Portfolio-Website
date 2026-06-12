@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, Mail, MapPin } from "lucide-react";
-import profile from "@/assets/profile.png.asset.json";
+import profileUrl from "@/assets/images/profile.png";
 
 const stats = [
   { value: "4+", label: "Years Experience" },
