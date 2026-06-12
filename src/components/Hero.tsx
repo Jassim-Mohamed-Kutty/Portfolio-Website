@@ -70,7 +70,7 @@ export function Hero() {
               />
               <div className="absolute inset-2 rounded-full gradient-primary opacity-40 blur-2xl" />
               <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/40 glow">
-                <img src={profile.url} alt="Jassim Mohamed Kutty" width={768} height={768} className="w-full h-full object-cover" />
+                <img src={profileUrl} alt="Jassim Mohamed Kutty" width={768} height={768} className="w-full h-full object-cover" />
               </div>
               <motion.div
                 animate={{ y: [0, -10, 0] }}
