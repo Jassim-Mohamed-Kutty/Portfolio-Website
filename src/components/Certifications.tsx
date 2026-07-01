@@ -3,8 +3,16 @@ import { Section } from "./Section";
 import { ShieldCheck, ExternalLink } from "lucide-react";
 import databricksBadge from "@/assets/images/databricks-data-analyst-associate.png";
 import microsoftBadge from "@/assets/images/microsoft-pl300.png";
+import fabricBadge from "@/assets/images/microsoft-dp600.png";
 
 const certs = [
+  {
+    title: "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
+    desc: "Validates expertise in designing, creating, and deploying enterprise-scale analytics solutions using Microsoft Fabric. Covers data ingestion, transformation, modeling, and delivery across Lakehouses, Warehouses, and semantic models, along with performance optimization and security within the Fabric platform.",
+    url: "https://learn.microsoft.com/api/credentials/share/en-gb/Jassim-Mohamed-Kutty/15A3CFA080ABA1AC?sharingId=8BF7755085BB9E26",
+    image: fabricBadge,
+    alt: "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
+  },
   {
     title: "Microsoft Certified: Power BI Data Analyst Associate (PL-300)",
     desc: "Validates expertise in data preparation, modeling, visualization, and business analytics using Power BI. Demonstrates the ability to transform data into actionable business insights and enable self-service analytics. The certification focuses on Power Query, DAX, data modeling, reporting, and dashboard development.",
