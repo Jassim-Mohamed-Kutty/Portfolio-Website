@@ -59,6 +59,7 @@ export function Experience() {
                   <div>
                     <div className="font-semibold text-foreground">{r.role}</div>
                     <div className="text-sm text-primary">{r.company}</div>
+                    <div className="text-xs text-muted-foreground">{r.location}</div>
                   </div>
                 </div>
                 <div className="text-xs font-mono text-muted-foreground mb-4">{r.period}</div>
