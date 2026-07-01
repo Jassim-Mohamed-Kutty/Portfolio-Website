@@ -5,7 +5,7 @@ import { Briefcase } from "lucide-react";
 const roles = [
   {
     company: "Smiths Detection",
-    role: "Data Analyst",
+    role: "Analytics Engineer",
     period: "Oct 2024 — Present",
     bullets: [
       "Delivered 20+ Power BI solutions integrating SAP, Salesforce, SharePoint, Azure Data Lake & SQL Server",
@@ -16,19 +16,9 @@ const roles = [
     ],
   },
   {
-    company: "AMETEK",
-    role: "Power BI Developer",
-    period: "Jan 2024 — Sep 2024",
-    bullets: [
-      "Developed cross-functional Power BI solutions for Finance, HR, Supply Chain & Marketing",
-      "Automated APAC & Middle East reporting — saved 20+ hours weekly",
-      "Delivered advanced analytical reporting with DAX & Power Query",
-    ],
-  },
-  {
     company: "Mix Consultants & Clearing Co. W.L.L.",
-    role: "Business Analyst",
-    period: "Oct 2022 — Dec 2023",
+    role: "Data Analyst",
+    period: "Aug 2022 — Sep 2024",
     bullets: [
       "Automated reporting processes, improving efficiency by 40%",
       "Reduced manual data preparation by 90%",
