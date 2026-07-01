@@ -4,9 +4,8 @@ import { Sparkles, Target, TrendingUp, Users } from "lucide-react";
 
 const journey = [
   { year: "2022", title: "Started Analytics Journey", desc: "Graduated with a Triple Major in Math, Economics & Statistics" },
-  { year: "2023", title: "Business Analyst", desc: "Built automated reporting frameworks and optimized schemas" },
-  { year: "2024", title: "Power BI Developer", desc: "Delivered cross-functional BI for global teams at AMETEK" },
-  { year: "Now", title: "Data Analyst → Analytics Engineer", desc: "Scaling BI with Databricks, Azure & semantic modeling" },
+  { year: "2022 — 2024", title: "Data Analyst", desc: "Built automated reporting frameworks and optimized schemas at Mix Consultants & Clearing Co. W.L.L." },
+  { year: "Now", title: "Analytics Engineer", desc: "Scaling BI with Databricks, Azure & semantic modeling at Smiths Detection" },
 ];
 
 const pillars = [
