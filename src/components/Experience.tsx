@@ -5,6 +5,7 @@ import { Briefcase } from "lucide-react";
 const roles = [
   {
     company: "Smiths Detection",
+    location: "Bengaluru, India",
     role: "Analytics Engineer",
     period: "Oct 2024 — Present",
     bullets: [
@@ -17,6 +18,7 @@ const roles = [
   },
   {
     company: "Mix Consultants & Clearing Co. W.L.L.",
+    location: "Bahrain",
     role: "Data Analyst",
     period: "Aug 2022 — Sep 2024",
     bullets: [
@@ -57,6 +59,7 @@ export function Experience() {
                   <div>
                     <div className="font-semibold text-foreground">{r.role}</div>
                     <div className="text-sm text-primary">{r.company}</div>
+                    <div className="text-xs text-muted-foreground">{r.location}</div>
                   </div>
                 </div>
                 <div className="text-xs font-mono text-muted-foreground mb-4">{r.period}</div>
