@@ -5,6 +5,7 @@ import { Briefcase } from "lucide-react";
 const roles = [
   {
     company: "Smiths Detection",
+    location: "Bengaluru, India",
     role: "Analytics Engineer",
     period: "Oct 2024 — Present",
     bullets: [
@@ -17,6 +18,7 @@ const roles = [
   },
   {
     company: "Mix Consultants & Clearing Co. W.L.L.",
+    location: "Bahrain",
     role: "Data Analyst",
     period: "Aug 2022 — Sep 2024",
     bullets: [
