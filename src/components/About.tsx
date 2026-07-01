@@ -4,9 +4,8 @@ import { Sparkles, Target, TrendingUp, Users } from "lucide-react";
 
 const journey = [
   { year: "2022", title: "Started Analytics Journey", desc: "Graduated with a Triple Major in Math, Economics & Statistics" },
-  { year: "2023", title: "Business Analyst", desc: "Built automated reporting frameworks and optimized schemas" },
-  { year: "2024", title: "Power BI Developer", desc: "Delivered cross-functional BI for global teams at AMETEK" },
-  { year: "Now", title: "Data Analyst → Analytics Engineer", desc: "Scaling BI with Databricks, Azure & semantic modeling" },
+  { year: "2022 — 2024", title: "Data Analyst", desc: "Built automated reporting frameworks and optimized schemas at Mix Consultants & Clearing Co. W.L.L." },
+  { year: "Now", title: "Analytics Engineer", desc: "Scaling BI with Databricks, Azure & semantic modeling at Smiths Detection" },
 ];
 
 const pillars = [
@@ -33,13 +32,13 @@ export function About() {
           className="glass rounded-3xl p-8 space-y-4 text-muted-foreground leading-relaxed"
         >
           <p>
-            I'm a results-driven <span className="text-foreground font-medium">Data Analyst</span> with 4 years of experience delivering scalable analytics across Service Operations, Service Delivery, and Global Services.
+            I'm a results-driven <span className="text-foreground font-medium">Analytics Engineer</span> with experience delivering scalable analytics across Service Operations, Service Delivery, and Global Services.
           </p>
           <p>
             I specialize in transforming raw data into decision-grade insights using <span className="text-primary">Power BI, SQL, Databricks, and Azure</span>, with deep familiarity in enterprise platforms like SAP, Salesforce, and ServiceMax.
           </p>
           <p>
-            My journey is evolving from Business Intelligence into <span className="text-secondary">Analytics Engineering</span> — building semantic layers, curated data products, and reliable pipelines that power the next generation of reporting.
+            My journey spans Business Intelligence and <span className="text-secondary">Analytics Engineering</span> — building semantic layers, curated data products, and reliable pipelines that power the next generation of reporting.
           </p>
 
           <div className="grid grid-cols-2 gap-3 pt-4">
