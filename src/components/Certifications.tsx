@@ -7,18 +7,18 @@ import fabricBadge from "@/assets/images/microsoft-dp600.png";
 
 const certs = [
   {
-    title: "Databricks Certified Data Analyst Associate",
-    desc: "Validates proficiency in Databricks SQL, data exploration, dashboard creation, visualization, and analytics workflows within the Databricks Lakehouse Platform.",
-    url: "https://credentials.databricks.com/49daa044-ab9a-40dd-a8b2-88a302e56ab3#acc.wAb0qYTK",
-    image: databricksBadge,
-    alt: "Databricks Certified Data Analyst Associate",
-  },
-  {
     title: "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
     desc: "Validates expertise in designing, creating, and deploying enterprise-scale analytics solutions using Microsoft Fabric. Covers data ingestion, transformation, modeling, and delivery across Lakehouses, Warehouses, and semantic models, along with performance optimization and security within the Fabric platform.",
     url: "https://learn.microsoft.com/api/credentials/share/en-gb/Jassim-Mohamed-Kutty/15A3CFA080ABA1AC?sharingId=8BF7755085BB9E26",
     image: fabricBadge,
     alt: "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
+  },
+  {
+    title: "Databricks Certified Data Analyst Associate",
+    desc: "Validates proficiency in Databricks SQL, data exploration, dashboard creation, visualization, and analytics workflows within the Databricks Lakehouse Platform.",
+    url: "https://credentials.databricks.com/49daa044-ab9a-40dd-a8b2-88a302e56ab3#acc.wAb0qYTK",
+    image: databricksBadge,
+    alt: "Databricks Certified Data Analyst Associate",
   },
   {
     title: "Microsoft Certified: Power BI Data Analyst Associate (PL-300)",
