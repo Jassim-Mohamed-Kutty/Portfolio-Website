@@ -34,9 +34,9 @@ function Home() {
       <Hero />
       <About />
       <Certifications />
+      <Experience />
       <Skills />
       <Services />
-      <Experience />
       <Projects />
       <Education />
       <Contact />
