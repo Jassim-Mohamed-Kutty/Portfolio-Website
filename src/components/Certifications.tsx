@@ -17,7 +17,7 @@ const certs = [
     title: "Databricks Certified Data Analyst Associate",
     desc: "Validates proficiency in Databricks SQL, data exploration, dashboard creation, visualization, and analytics workflows within the Databricks Lakehouse Platform.",
     url: "https://credentials.databricks.com/49daa044-ab9a-40dd-a8b2-88a302e56ab3#acc.wAb0qYTK",
-    image: databricksBadge.url,
+    image: databricksBadge,
     alt: "Databricks Certified Data Analyst Associate",
   },
   {
