@@ -35,10 +35,10 @@ function Home() {
       <About />
       <Certifications />
       <Experience />
+      <Education />
       <Skills />
       <Services />
       <Projects />
-      <Education />
       <Contact />
       <Footer />
     </main>
