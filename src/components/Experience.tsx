@@ -44,19 +44,26 @@ export function Experience() {
       subtitle="Four years across global enterprises, building analytics products that move the needle."
     >
       <div className="relative">
-        <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-secondary/40 to-transparent -translate-x-1/2" />
+        {/* Single continuous timeline spine */}
+        <div className="absolute left-4 md:left-10 top-0 bottom-0 w-px bg-gradient-to-b from-primary/60 via-secondary/40 to-transparent" />
+
         <div className="space-y-10">
-          {roles.map((r, i) => (
+          {roles.map((r) => (
             <motion.div
               key={r.company}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6 }}
-              className={`md:grid md:grid-cols-2 md:gap-10 items-center ${i % 2 ? "md:[&>div:first-child]:order-2" : ""}`}
+              className="grid grid-cols-[32px_1fr] md:grid-cols-[80px_1fr] gap-x-4 md:gap-x-8"
             >
-              <div className="glass glass-hover rounded-2xl p-6 relative">
-                <div className="absolute hidden md:block top-6 -right-[34px] h-4 w-4 rounded-full gradient-primary ring-4 ring-background" style={i % 2 ? { right: "auto", left: "-34px" } : {}} />
+              {/* Timeline dot */}
+              <div className="flex justify-center relative pt-6">
+                <div className="h-3 w-3 md:h-4 md:w-4 rounded-full gradient-primary ring-2 md:ring-4 ring-background" />
+              </div>
+
+              {/* Experience card */}
+              <div className="glass glass-hover rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="h-10 w-10 rounded-xl glass grid place-items-center">
                     <Briefcase size={18} className="text-primary" />
@@ -77,7 +84,6 @@ export function Experience() {
                   ))}
                 </ul>
               </div>
-              <div className="hidden md:block" />
             </motion.div>
           ))}
         </div>
