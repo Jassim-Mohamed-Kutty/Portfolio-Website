@@ -42,7 +42,7 @@ export const Route = createFileRoute("/api/public/contact")({
           return json({ error: "Could not save submission" }, 500);
         }
 
-        // TODO: send email to jassimkutty19@gmail.com once email domain is verified.
+        // TODO: send email to jassim.kutty@outlook.com once email domain is verified.
 
         return json({ ok: true });
       },

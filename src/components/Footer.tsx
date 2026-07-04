@@ -37,7 +37,7 @@ export function Footer() {
             <h4 className="text-sm font-semibold text-foreground mb-3">Connect</h4>
             <div className="flex gap-2">
               {[
-                { icon: Mail, href: "mailto:jassimkutty19@gmail.com", label: "Email" },
+                { icon: Mail, href: "mailto:jassim.kutty@outlook.com", label: "Email" },
                 { icon: Linkedin, href: "#", label: "LinkedIn" },
               ].map((s) => (
                 <a
