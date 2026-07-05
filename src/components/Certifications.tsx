@@ -3,7 +3,7 @@ import { Section } from "./Section";
 import { ShieldCheck, ExternalLink } from "lucide-react";
 import databricksBadge from "@/assets/images/databricks-data-analyst-associate.png";
 import microsoftBadge from "@/assets/images/microsoft-pl300.png";
-import fabricBadgeAsset from "@/assets/microsoft-dp600.png.asset.json";
+import fabricBadge from "@/assets/images/microsoft-dp600.png";
 
 const certs = [
   {
