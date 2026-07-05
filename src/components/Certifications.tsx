@@ -10,7 +10,7 @@ const certs = [
     title: "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
     desc: "Validates expertise in designing, creating, and deploying enterprise-scale analytics solutions using Microsoft Fabric. Covers data ingestion, transformation, modeling, and delivery across Lakehouses, Warehouses, and semantic models, along with performance optimization and security within the Fabric platform.",
     url: "https://learn.microsoft.com/api/credentials/share/en-gb/Jassim-Mohamed-Kutty/15A3CFA080ABA1AC?sharingId=8BF7755085BB9E26",
-    image: fabricBadgeAsset.url,
+    image: fabricBadge,
     alt: "Microsoft Certified: Fabric Analytics Engineer Associate (DP-600)",
   },
   {
