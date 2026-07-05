@@ -8,7 +8,6 @@ const items = [
   { icon: MapPin, label: "Location", value: "Bengaluru, India", href: null },
   { icon: Mail, label: "Email", value: "jassim.kutty@outlook.com", href: "mailto:jassim.kutty@outlook.com" },
   { icon: Linkedin, label: "LinkedIn", value: "Connect with me", href: "https://www.linkedin.com/in/jassim-mohamed-kutty/" },
-  { icon: Phone, label: "Phone", value: "Available on request", href: null },
 ];
 
 export function Contact() {
