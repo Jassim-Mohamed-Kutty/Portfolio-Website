@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Mail, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import profileUrl from "@/assets/images/profile.png";
 
 const stats = [
