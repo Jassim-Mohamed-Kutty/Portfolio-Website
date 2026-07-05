@@ -38,10 +38,7 @@ export function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-3 mb-10">
-              <a href="/resume.pdf" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium gradient-primary text-background hover:opacity-90 transition glow">
-                <Download size={16} /> Download Resume
-              </a>
-              <a href="#contact" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium glass glass-hover text-foreground">
+              <a href="#contact" className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium gradient-primary text-background hover:opacity-90 transition glow">
                 <Mail size={16} /> Contact Me
               </a>
             </div>
