@@ -32,13 +32,13 @@ export function About() {
           className="glass rounded-3xl p-8 space-y-4 text-muted-foreground leading-relaxed"
         >
           <p>
-            I'm a results-driven <span className="text-foreground font-medium">Analytics Engineer</span> with experience delivering scalable analytics across Service Operations, Service Delivery, and Global Services.
+            Jassim is an Analytics Engineer with a proven track record of transforming complex data into scalable analytics solutions that drive business decisions. His expertise spans Power BI, SQL, Databricks, and Azure, enabling organizations to unlock actionable insights from enterprise data.
           </p>
           <p>
-            I specialize in transforming raw data into decision-grade insights using <span className="text-primary">Power BI, SQL, Databricks, and Azure</span>, with deep familiarity in enterprise platforms like SAP, Salesforce, and ServiceMax.
+            With experience across Service Operations, Service Delivery, and Global Services, he has designed and delivered semantic models, curated data products, and scalable data pipelines that power self-service analytics and executive reporting. He has extensive experience integrating and modeling data from enterprise platforms such as SAP, Salesforce, and Azure Data Lake Storage to create trusted, business-ready datasets.
           </p>
           <p>
-            My journey spans Business Intelligence and <span className="text-secondary">Analytics Engineering</span> — building semantic layers, curated data products, and reliable pipelines that power the next generation of reporting.
+            Bridging the gap between business needs and technical implementation, Jassim focuses on building reliable, scalable, and user-centric analytics solutions that empower teams to make informed decisions with confidence.
           </p>
 
           <div className="grid grid-cols-2 gap-3 pt-4">
