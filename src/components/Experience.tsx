@@ -27,10 +27,10 @@ const roles = [
     role: "Data Analyst",
     period: "Aug 2022 — Sep 2024",
     bullets: [
-      "Automated reporting processes, improving efficiency by 40%",
-      "Reduced manual data preparation by 90%",
-      "Designed optimized star & snowflake schemas",
-      "Enhanced reporting performance by 35%",
+      "Built interactive Power BI dashboards that tracked key business metrics, increasing reporting accessibility and reducing ad-hoc data requests by 50%.",
+      "Architected optimized star and snowflake schemas to support scalable analytics and improve reporting performance.",
+      "Automated recurring reporting processes using Power Query, eliminating 10+ hours of manual effort per week and improving reporting efficiency.",
+      "Implemented data validation and quality checks across reporting datasets, reducing reporting discrepancies by 30% and improving data accuracy.",
     ],
   },
 ];
