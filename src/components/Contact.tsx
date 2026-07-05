@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Section } from "./Section";
-import { Mail, MapPin, Linkedin, Phone, Download, Send } from "lucide-react";
+import { Mail, MapPin, Linkedin, Download, Send } from "lucide-react";
 import { toast } from "sonner";
 
 const items = [
