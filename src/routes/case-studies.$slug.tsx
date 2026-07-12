@@ -101,7 +101,7 @@ function CaseStudyDetail() {
               <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground bg-surface/60 border border-glass-border px-2 py-1 rounded-md">
                 {alignment}
               </span>
-            </ID_PLACEHOLDER>
+            </div>
             <h1 className="text-3xl md:text-5xl font-bold mb-3">
               {label.split(" ")[0]} Case Study{" "}
               <span className="gradient-text">{nn}</span>
