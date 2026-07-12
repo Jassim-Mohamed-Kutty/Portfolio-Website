@@ -10,7 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsFabricRouteImport } from './routes/projects.fabric'
+import { Route as ProjectsDatabricksRouteImport } from './routes/projects.databricks'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as ProjectsFabricIdRouteImport } from './routes/projects.fabric.$id'
+import { Route as ProjectsDatabricksIdRouteImport } from './routes/projects.databricks.$id'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 
 const IndexRoute = IndexRouteImport.update({
@@ -18,10 +22,30 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsFabricRoute = ProjectsFabricRouteImport.update({
+  id: '/projects/fabric',
+  path: '/projects/fabric',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsDatabricksRoute = ProjectsDatabricksRouteImport.update({
+  id: '/projects/databricks',
+  path: '/projects/databricks',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   id: '/case-studies/$slug',
   path: '/case-studies/$slug',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsFabricIdRoute = ProjectsFabricIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ProjectsFabricRoute,
+} as any)
+const ProjectsDatabricksIdRoute = ProjectsDatabricksIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => ProjectsDatabricksRoute,
 } as any)
 const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   id: '/api/public/contact',
@@ -32,30 +56,66 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/projects/databricks': typeof ProjectsDatabricksRouteWithChildren
+  '/projects/fabric': typeof ProjectsFabricRouteWithChildren
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/projects/databricks/$id': typeof ProjectsDatabricksIdRoute
+  '/projects/fabric/$id': typeof ProjectsFabricIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/projects/databricks': typeof ProjectsDatabricksRouteWithChildren
+  '/projects/fabric': typeof ProjectsFabricRouteWithChildren
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/projects/databricks/$id': typeof ProjectsDatabricksIdRoute
+  '/projects/fabric/$id': typeof ProjectsFabricIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/projects/databricks': typeof ProjectsDatabricksRouteWithChildren
+  '/projects/fabric': typeof ProjectsFabricRouteWithChildren
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/projects/databricks/$id': typeof ProjectsDatabricksIdRoute
+  '/projects/fabric/$id': typeof ProjectsFabricIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/case-studies/$slug' | '/api/public/contact'
+  fullPaths:
+    | '/'
+    | '/case-studies/$slug'
+    | '/projects/databricks'
+    | '/projects/fabric'
+    | '/api/public/contact'
+    | '/projects/databricks/$id'
+    | '/projects/fabric/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/case-studies/$slug' | '/api/public/contact'
-  id: '__root__' | '/' | '/case-studies/$slug' | '/api/public/contact'
+  to:
+    | '/'
+    | '/case-studies/$slug'
+    | '/projects/databricks'
+    | '/projects/fabric'
+    | '/api/public/contact'
+    | '/projects/databricks/$id'
+    | '/projects/fabric/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/case-studies/$slug'
+    | '/projects/databricks'
+    | '/projects/fabric'
+    | '/api/public/contact'
+    | '/projects/databricks/$id'
+    | '/projects/fabric/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  ProjectsDatabricksRoute: typeof ProjectsDatabricksRouteWithChildren
+  ProjectsFabricRoute: typeof ProjectsFabricRouteWithChildren
   ApiPublicContactRoute: typeof ApiPublicContactRoute
 }
 
@@ -68,12 +128,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/fabric': {
+      id: '/projects/fabric'
+      path: '/projects/fabric'
+      fullPath: '/projects/fabric'
+      preLoaderRoute: typeof ProjectsFabricRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/databricks': {
+      id: '/projects/databricks'
+      path: '/projects/databricks'
+      fullPath: '/projects/databricks'
+      preLoaderRoute: typeof ProjectsDatabricksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies/$slug': {
       id: '/case-studies/$slug'
       path: '/case-studies/$slug'
       fullPath: '/case-studies/$slug'
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/projects/fabric/$id': {
+      id: '/projects/fabric/$id'
+      path: '/$id'
+      fullPath: '/projects/fabric/$id'
+      preLoaderRoute: typeof ProjectsFabricIdRouteImport
+      parentRoute: typeof ProjectsFabricRoute
+    }
+    '/projects/databricks/$id': {
+      id: '/projects/databricks/$id'
+      path: '/$id'
+      fullPath: '/projects/databricks/$id'
+      preLoaderRoute: typeof ProjectsDatabricksIdRouteImport
+      parentRoute: typeof ProjectsDatabricksRoute
     }
     '/api/public/contact': {
       id: '/api/public/contact'
@@ -85,9 +173,34 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ProjectsDatabricksRouteChildren {
+  ProjectsDatabricksIdRoute: typeof ProjectsDatabricksIdRoute
+}
+
+const ProjectsDatabricksRouteChildren: ProjectsDatabricksRouteChildren = {
+  ProjectsDatabricksIdRoute: ProjectsDatabricksIdRoute,
+}
+
+const ProjectsDatabricksRouteWithChildren =
+  ProjectsDatabricksRoute._addFileChildren(ProjectsDatabricksRouteChildren)
+
+interface ProjectsFabricRouteChildren {
+  ProjectsFabricIdRoute: typeof ProjectsFabricIdRoute
+}
+
+const ProjectsFabricRouteChildren: ProjectsFabricRouteChildren = {
+  ProjectsFabricIdRoute: ProjectsFabricIdRoute,
+}
+
+const ProjectsFabricRouteWithChildren = ProjectsFabricRoute._addFileChildren(
+  ProjectsFabricRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  ProjectsDatabricksRoute: ProjectsDatabricksRouteWithChildren,
+  ProjectsFabricRoute: ProjectsFabricRouteWithChildren,
   ApiPublicContactRoute: ApiPublicContactRoute,
 }
 export const routeTree = rootRouteImport
