@@ -1,76 +1,210 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "@tanstack/react-router";
+import { ArrowUpRight, Database, Layers } from "lucide-react";
 import { Section } from "./Section";
 
-const projects = [
+type Category = "fabric" | "databricks";
+
+type CaseStudy = {
+  slug: string;
+  code: string;
+  title: string;
+  description: string;
+  tech: string[];
+  category: Category;
+};
+
+const fabricFocus = [
+  "Data Ingestion",
+  "Lakehouse Architecture",
+  "Data Modeling",
+  "Real-Time Analytics",
+  "Governance",
+  "Executive Reporting",
+];
+
+const databricksFocus = [
+  "PySpark",
+  "Delta Lake",
+  "Data Pipelines",
+  "Performance Optimization",
+  "Unity Catalog",
+  "Data Engineering",
+];
+
+const fabricCases: CaseStudy[] = Array.from({ length: 11 }, (_, i) => {
+  const n = String(i + 1).padStart(2, "0");
+  return {
+    slug: `fabric-${n}`,
+    code: `FAB-${n}`,
+    title: `Fabric Case Study ${n}`,
+    description:
+      "End-to-end Microsoft Fabric case study covering ingestion, lakehouse modeling, and executive reporting. Detailed write-up coming soon.",
+    tech: ["Microsoft Fabric", "OneLake", "Power BI"],
+    category: "fabric",
+  };
+});
+
+const databricksCases: CaseStudy[] = Array.from({ length: 9 }, (_, i) => {
+  const n = String(i + 1).padStart(2, "0");
+  return {
+    slug: `databricks-${n}`,
+    code: `DBX-${n}`,
+    title: `Databricks Case Study ${n}`,
+    description:
+      "Hands-on Azure Databricks engineering case study spanning PySpark pipelines, Delta Lake modeling, and performance tuning. Detailed write-up coming soon.",
+    tech: ["Azure Databricks", "PySpark", "Delta Lake"],
+    category: "databricks",
+  };
+});
+
+const categories: {
+  id: Category;
+  label: string;
+  count: number;
+  alignment: string;
+  icon: typeof Layers;
+  focus: string[];
+}[] = [
   {
-    title: "Error Management Dashboard",
-    desc: "Reconciliation framework comparing SAP and ServiceMax data to identify discrepancies and improve data quality.",
-    tech: ["Power BI", "SQL", "SAP", "ServiceMax"],
-    tag: "Data Quality",
+    id: "fabric",
+    label: "Microsoft Fabric",
+    count: 11,
+    alignment: "DP-600 / DP-700 aligned",
+    icon: Layers,
+    focus: fabricFocus,
   },
   {
-    title: "Work Order Analytics Dashboard",
-    desc: "Operational dashboards tracking SLA compliance, backlog aging, service performance, and work order lifecycle metrics.",
-    tech: ["Power BI", "SQL"],
-    tag: "Operations",
-  },
-  {
-    title: "Supply Chain Reporting Automation",
-    desc: "Automated APAC & Middle East reporting workflows, reducing manual effort and accelerating decision-making.",
-    tech: ["Power BI", "SQL", "Excel"],
-    tag: "Automation",
-  },
-  {
-    title: "Databricks Semantic Layer",
-    desc: "Designed analytics-ready semantic models and curated datasets using Databricks and Azure Data Lake.",
-    tech: ["Databricks", "Spark SQL", "Azure"],
-    tag: "Analytics Engineering",
-  },
-  {
-    title: "Service Operations Performance Analytics",
-    desc: "KPI-driven reporting solutions for global service teams and operational leadership.",
-    tech: ["Power BI", "SQL", "SAP"],
-    tag: "Executive Reporting",
+    id: "databricks",
+    label: "Azure Databricks",
+    count: 9,
+    alignment: "Databricks Data Engineer aligned",
+    icon: Database,
+    focus: databricksFocus,
   },
 ];
 
 export function Projects() {
+  const [active, setActive] = useState<Category>("fabric");
+  const cases = active === "fabric" ? fabricCases : databricksCases;
+
   return (
     <Section
       id="projects"
-      eyebrow="Work Highlights"
-      title={<>Analytics solutions I've <span className="gradient-text">delivered</span></>}
-      subtitle="A glimpse into the kinds of analytics and reporting initiatives I've built and contributed to in my current role."
+      eyebrow="Case Studies Portfolio"
+      title={
+        <>
+          Case Studies & <span className="gradient-text">Engineering Projects</span>
+        </>
+      }
+      subtitle="20 real-world analytics and data engineering case studies spanning Microsoft Fabric and Azure Databricks — covering ingestion, transformation, modeling, governance, optimization, and executive reporting."
     >
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {projects.map((p, i) => (
-          <motion.article
-            key={p.title}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: i * 0.06 }}
-            className="glass glass-hover rounded-2xl p-6 flex flex-col group"
-          >
-            <div className="flex items-start justify-between mb-4">
-              <span className="text-[10px] font-mono uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-md">
-                {p.tag}
-              </span>
-            </div>
-            <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-              {p.title}
-            </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">{p.desc}</p>
-            <div className="flex flex-wrap gap-1.5">
-              {p.tech.map((t) => (
-                <span key={t} className="text-[11px] rounded-md px-2 py-1 bg-surface/60 border border-glass-border text-muted-foreground">
-                  {t}
+      {/* Category cards */}
+      <div className="grid md:grid-cols-2 gap-4 mb-10">
+        {categories.map((c) => {
+          const Icon = c.icon;
+          const isActive = active === c.id;
+          return (
+            <button
+              key={c.id}
+              onClick={() => setActive(c.id)}
+              className={`text-left glass glass-hover rounded-2xl p-6 border transition-all ${
+                isActive
+                  ? "border-primary/50 shadow-[0_0_40px_-15px_rgba(56,189,248,0.5)]"
+                  : "border-glass-border"
+              }`}
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div
+                    className={`h-11 w-11 rounded-xl grid place-items-center ${
+                      isActive ? "gradient-primary text-background" : "bg-surface/60 text-primary"
+                    }`}
+                  >
+                    <Icon size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-foreground">{c.label}</h3>
+                    <p className="text-xs font-mono text-muted-foreground mt-0.5">
+                      {c.alignment}
+                    </p>
+                  </div>
+                </div>
+                <span className="text-[11px] font-mono uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-md">
+                  {c.count} Case Studies
                 </span>
-              ))}
-            </div>
-          </motion.article>
-        ))}
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {c.focus.map((f) => (
+                  <span
+                    key={f}
+                    className="text-[11px] rounded-md px-2 py-1 bg-surface/60 border border-glass-border text-muted-foreground"
+                  >
+                    {f}
+                  </span>
+                ))}
+              </div>
+            </button>
+          );
+        })}
       </div>
+
+      {/* Case study grid */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={active}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.35 }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+          {cases.map((cs, i) => (
+            <motion.div
+              key={cs.slug}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: i * 0.04 }}
+            >
+              <Link
+                to="/case-studies/$slug"
+                params={{ slug: cs.slug }}
+                className="glass glass-hover rounded-2xl p-6 flex flex-col group h-full"
+              >
+                <div className="flex items-start justify-between mb-4">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-primary bg-primary/10 px-2 py-1 rounded-md">
+                    {cs.code}
+                  </span>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-muted-foreground group-hover:text-primary group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  {cs.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5 flex-1">
+                  {cs.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {cs.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-[11px] rounded-md px-2 py-1 bg-surface/60 border border-glass-border text-muted-foreground"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-xs font-mono uppercase tracking-wider text-primary inline-flex items-center gap-1 mt-auto">
+                  View Case Study <ArrowUpRight size={12} />
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </Section>
   );
 }
