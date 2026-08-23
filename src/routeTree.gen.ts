@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsFabricRouteImport } from './routes/projects.fabric'
 import { Route as ProjectsDatabricksRouteImport } from './routes/projects.databricks'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as ProjectsFabricNorthMeridianRouteImport } from './routes/projects.fabric.north-meridian'
 import { Route as ProjectsFabricIdRouteImport } from './routes/projects.fabric.$id'
 import { Route as ProjectsDatabricksIdRouteImport } from './routes/projects.databricks.$id'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
@@ -37,6 +38,12 @@ const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   path: '/case-studies/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsFabricNorthMeridianRoute =
+  ProjectsFabricNorthMeridianRouteImport.update({
+    id: '/north-meridian',
+    path: '/north-meridian',
+    getParentRoute: () => ProjectsFabricRoute,
+  } as any)
 const ProjectsFabricIdRoute = ProjectsFabricIdRouteImport.update({
   id: '/$id',
   path: '/$id',
@@ -61,6 +68,7 @@ export interface FileRoutesByFullPath {
   '/api/public/contact': typeof ApiPublicContactRoute
   '/projects/databricks/$id': typeof ProjectsDatabricksIdRoute
   '/projects/fabric/$id': typeof ProjectsFabricIdRoute
+  '/projects/fabric/north-meridian': typeof ProjectsFabricNorthMeridianRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +78,7 @@ export interface FileRoutesByTo {
   '/api/public/contact': typeof ApiPublicContactRoute
   '/projects/databricks/$id': typeof ProjectsDatabricksIdRoute
   '/projects/fabric/$id': typeof ProjectsFabricIdRoute
+  '/projects/fabric/north-meridian': typeof ProjectsFabricNorthMeridianRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +89,7 @@ export interface FileRoutesById {
   '/api/public/contact': typeof ApiPublicContactRoute
   '/projects/databricks/$id': typeof ProjectsDatabricksIdRoute
   '/projects/fabric/$id': typeof ProjectsFabricIdRoute
+  '/projects/fabric/north-meridian': typeof ProjectsFabricNorthMeridianRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +101,7 @@ export interface FileRouteTypes {
     | '/api/public/contact'
     | '/projects/databricks/$id'
     | '/projects/fabric/$id'
+    | '/projects/fabric/north-meridian'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +111,7 @@ export interface FileRouteTypes {
     | '/api/public/contact'
     | '/projects/databricks/$id'
     | '/projects/fabric/$id'
+    | '/projects/fabric/north-meridian'
   id:
     | '__root__'
     | '/'
@@ -109,6 +121,7 @@ export interface FileRouteTypes {
     | '/api/public/contact'
     | '/projects/databricks/$id'
     | '/projects/fabric/$id'
+    | '/projects/fabric/north-meridian'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -149,6 +162,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/fabric/north-meridian': {
+      id: '/projects/fabric/north-meridian'
+      path: '/north-meridian'
+      fullPath: '/projects/fabric/north-meridian'
+      preLoaderRoute: typeof ProjectsFabricNorthMeridianRouteImport
+      parentRoute: typeof ProjectsFabricRoute
+    }
     '/projects/fabric/$id': {
       id: '/projects/fabric/$id'
       path: '/$id'
@@ -186,10 +206,12 @@ const ProjectsDatabricksRouteWithChildren =
 
 interface ProjectsFabricRouteChildren {
   ProjectsFabricIdRoute: typeof ProjectsFabricIdRoute
+  ProjectsFabricNorthMeridianRoute: typeof ProjectsFabricNorthMeridianRoute
 }
 
 const ProjectsFabricRouteChildren: ProjectsFabricRouteChildren = {
   ProjectsFabricIdRoute: ProjectsFabricIdRoute,
+  ProjectsFabricNorthMeridianRoute: ProjectsFabricNorthMeridianRoute,
 }
 
 const ProjectsFabricRouteWithChildren = ProjectsFabricRoute._addFileChildren(
@@ -206,3 +228,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
