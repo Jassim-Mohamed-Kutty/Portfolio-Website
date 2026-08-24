@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsFabricRouteImport } from './routes/projects.fabric'
 import { Route as ProjectsDatabricksRouteImport } from './routes/projects.databricks'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as ProjectsFabricIndexRouteImport } from './routes/projects.fabric.index'
+import { Route as ProjectsDatabricksIndexRouteImport } from './routes/projects.databricks.index'
 import { Route as ProjectsFabricNorthMeridianRouteImport } from './routes/projects.fabric.north-meridian'
 import { Route as ProjectsFabricIdRouteImport } from './routes/projects.fabric.$id'
 import { Route as ProjectsDatabricksIdRouteImport } from './routes/projects.databricks.$id'
@@ -37,6 +39,16 @@ const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   id: '/case-studies/$slug',
   path: '/case-studies/$slug',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsFabricIndexRoute = ProjectsFabricIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProjectsFabricRoute,
+} as any)
+const ProjectsDatabricksIndexRoute = ProjectsDatabricksIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProjectsDatabricksRoute,
 } as any)
 const ProjectsFabricNorthMeridianRoute =
   ProjectsFabricNorthMeridianRouteImport.update({
@@ -69,16 +81,18 @@ export interface FileRoutesByFullPath {
   '/projects/databricks/$id': typeof ProjectsDatabricksIdRoute
   '/projects/fabric/$id': typeof ProjectsFabricIdRoute
   '/projects/fabric/north-meridian': typeof ProjectsFabricNorthMeridianRoute
+  '/projects/databricks/': typeof ProjectsDatabricksIndexRoute
+  '/projects/fabric/': typeof ProjectsFabricIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
-  '/projects/databricks': typeof ProjectsDatabricksRouteWithChildren
-  '/projects/fabric': typeof ProjectsFabricRouteWithChildren
   '/api/public/contact': typeof ApiPublicContactRoute
   '/projects/databricks/$id': typeof ProjectsDatabricksIdRoute
   '/projects/fabric/$id': typeof ProjectsFabricIdRoute
   '/projects/fabric/north-meridian': typeof ProjectsFabricNorthMeridianRoute
+  '/projects/databricks': typeof ProjectsDatabricksIndexRoute
+  '/projects/fabric': typeof ProjectsFabricIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -90,6 +104,8 @@ export interface FileRoutesById {
   '/projects/databricks/$id': typeof ProjectsDatabricksIdRoute
   '/projects/fabric/$id': typeof ProjectsFabricIdRoute
   '/projects/fabric/north-meridian': typeof ProjectsFabricNorthMeridianRoute
+  '/projects/databricks/': typeof ProjectsDatabricksIndexRoute
+  '/projects/fabric/': typeof ProjectsFabricIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -102,16 +118,18 @@ export interface FileRouteTypes {
     | '/projects/databricks/$id'
     | '/projects/fabric/$id'
     | '/projects/fabric/north-meridian'
+    | '/projects/databricks/'
+    | '/projects/fabric/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/case-studies/$slug'
-    | '/projects/databricks'
-    | '/projects/fabric'
     | '/api/public/contact'
     | '/projects/databricks/$id'
     | '/projects/fabric/$id'
     | '/projects/fabric/north-meridian'
+    | '/projects/databricks'
+    | '/projects/fabric'
   id:
     | '__root__'
     | '/'
@@ -122,6 +140,8 @@ export interface FileRouteTypes {
     | '/projects/databricks/$id'
     | '/projects/fabric/$id'
     | '/projects/fabric/north-meridian'
+    | '/projects/databricks/'
+    | '/projects/fabric/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -162,6 +182,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/fabric/': {
+      id: '/projects/fabric/'
+      path: '/'
+      fullPath: '/projects/fabric/'
+      preLoaderRoute: typeof ProjectsFabricIndexRouteImport
+      parentRoute: typeof ProjectsFabricRoute
+    }
+    '/projects/databricks/': {
+      id: '/projects/databricks/'
+      path: '/'
+      fullPath: '/projects/databricks/'
+      preLoaderRoute: typeof ProjectsDatabricksIndexRouteImport
+      parentRoute: typeof ProjectsDatabricksRoute
+    }
     '/projects/fabric/north-meridian': {
       id: '/projects/fabric/north-meridian'
       path: '/north-meridian'
@@ -195,10 +229,12 @@ declare module '@tanstack/react-router' {
 
 interface ProjectsDatabricksRouteChildren {
   ProjectsDatabricksIdRoute: typeof ProjectsDatabricksIdRoute
+  ProjectsDatabricksIndexRoute: typeof ProjectsDatabricksIndexRoute
 }
 
 const ProjectsDatabricksRouteChildren: ProjectsDatabricksRouteChildren = {
   ProjectsDatabricksIdRoute: ProjectsDatabricksIdRoute,
+  ProjectsDatabricksIndexRoute: ProjectsDatabricksIndexRoute,
 }
 
 const ProjectsDatabricksRouteWithChildren =
@@ -207,11 +243,13 @@ const ProjectsDatabricksRouteWithChildren =
 interface ProjectsFabricRouteChildren {
   ProjectsFabricIdRoute: typeof ProjectsFabricIdRoute
   ProjectsFabricNorthMeridianRoute: typeof ProjectsFabricNorthMeridianRoute
+  ProjectsFabricIndexRoute: typeof ProjectsFabricIndexRoute
 }
 
 const ProjectsFabricRouteChildren: ProjectsFabricRouteChildren = {
   ProjectsFabricIdRoute: ProjectsFabricIdRoute,
   ProjectsFabricNorthMeridianRoute: ProjectsFabricNorthMeridianRoute,
+  ProjectsFabricIndexRoute: ProjectsFabricIndexRoute,
 }
 
 const ProjectsFabricRouteWithChildren = ProjectsFabricRoute._addFileChildren(
