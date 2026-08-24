@@ -4,7 +4,16 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 
-const projects = Array.from({ length: 11 }, (_, i) => {
+type FabricProject = {
+  id: string;
+  code: string;
+  title: string;
+  description: string;
+  tech: string[];
+  href?: string;
+};
+
+const projects: FabricProject[] = Array.from({ length: 11 }, (_, i) => {
   const n = String(i + 1).padStart(2, "0");
   return {
     id: `fab-${n}`,
@@ -15,6 +24,17 @@ const projects = Array.from({ length: 11 }, (_, i) => {
     tech: ["Microsoft Fabric", "OneLake", "Power BI"],
   };
 });
+
+projects[0] = {
+  id: "fab-01",
+  code: "FAB-01",
+  title: "Unified Commerce Analytics",
+  description:
+    "Re-engineering a normalized Azure SQL commerce platform into a governed Bronze–Silver–Gold analytical architecture with metadata-driven ingestion and watermark-based incremental loading.",
+  tech: ["Microsoft Fabric", "Lakehouse", "PySpark", "Data Engineering"],
+  href: "/projects/fabric/north-meridian",
+};
+
 
 export const Route = createFileRoute("/projects/fabric")({
   head: () => ({
