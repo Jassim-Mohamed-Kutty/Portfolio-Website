@@ -80,11 +80,14 @@ function FabricProjects() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {projects.map((p) => (
+            {projects.map((p) => {
+              const linkProps = p.href
+                ? ({ to: p.href } as const)
+                : ({ to: "/projects/fabric/$id", params: { id: p.id } } as const);
+              return (
               <Link
                 key={p.id}
-                to="/projects/fabric/$id"
-                params={{ id: p.id }}
+                {...linkProps}
                 className="glass glass-hover rounded-2xl p-6 flex flex-col group h-full"
               >
                 <div className="flex items-start justify-between mb-4">
@@ -112,8 +115,15 @@ function FabricProjects() {
                     </span>
                   ))}
                 </div>
+                {p.href && (
+                  <div className="mt-5 text-xs font-medium text-primary">
+                    View Case Study →
+                  </div>
+                )}
               </Link>
-            ))}
+              );
+            })}
+
           </div>
         </div>
       </section>
